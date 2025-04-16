@@ -1,0 +1,4 @@
+enum BackEnds {
+  firebase,
+  supabase,
+}
