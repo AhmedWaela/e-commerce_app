@@ -44,7 +44,7 @@ class GoogleSignUpButton extends StatelessWidget {
   }
 
   GoogleSignUpCubit provideGoogleSignUpCubit(context) {
-    final backEnd = GoogleSignUpRepo.getFactory(BackEnds.firebase);
+    final backEnd = GoogleSignUpRepo.getFactory(BackEnds.supabase);
     return GoogleSignUpCubit(backEnd);
   }
 }

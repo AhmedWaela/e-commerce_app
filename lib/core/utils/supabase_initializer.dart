@@ -6,7 +6,7 @@ class SupabaseInitializer {
     await Supabase.initialize(
       url: "${dotenv.env["SUPABASE_URL"]}",
       anonKey:
-          "${dotenv.env["Supabase_ANON_KEY"]}"
+          "${dotenv.env["SUPABASE_ANON_KEY"]}"
     );
   }
 }

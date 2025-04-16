@@ -13,10 +13,11 @@ import "core/utils/theme.dart";
 
   Future<void> initalizeAndStartApp() async {
     FlutterBindingInitializer.initialize();
+    await dotenv.load(fileName: ".env");
     await Future.wait([
       FirebaseInitializer.initialize(),
       SupabaseInitializer.initialize(),
-      dotenv.load(fileName: ".env")
+
     ]);
   AppStarter.start();
  }

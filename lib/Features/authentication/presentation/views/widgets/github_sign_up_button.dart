@@ -45,7 +45,7 @@ class GithubSignUpButton extends StatelessWidget {
   }
 
   GithubSignUpCubit _provideGithubSignUpCubit(BuildContext context) {
-    final GithubSignUpRepo firebaseGithubSignUpRepoImpl = GithubSignUpRepo.getFactory(BackEnds.firebase);
+    final GithubSignUpRepo firebaseGithubSignUpRepoImpl = GithubSignUpRepo.getFactory(BackEnds.supabase);
     return GithubSignUpCubit(firebaseGithubSignUpRepoImpl);
   }
 }
