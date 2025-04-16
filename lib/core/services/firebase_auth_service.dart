@@ -51,7 +51,7 @@ class FirebaseAuthService implements AuthService {
       redirectUrl: '${dotenv.env["GITHUB_REDIRECT_URI"]}',
     );
     final GitHubSignInResult gitHubSignInResult = await githubSignin.signIn(context);
-    final credential = GithubAuthProvider.credential(gitHubSignInResult.token ?? "");
+    final OAuthCredential credential = GithubAuthProvider.credential(gitHubSignInResult.token ?? "");
     await firebaseAuth.signInWithCredential(credential);
   }
 }

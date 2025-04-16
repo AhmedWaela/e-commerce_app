@@ -5,7 +5,7 @@ import '../../main.dart';
 class AppStarter {
   static void start() {
     runApp(DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (context) => const ECommerceApp(),
     ));
   }

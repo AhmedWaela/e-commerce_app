@@ -18,11 +18,10 @@ class SupabaseAuthService implements AuthService {
 
   @override
   Future<void> authWithGoogle() async {
-    final SingletonGoogleSignIn singletonGoogleSignIn = SingletonGoogleSignIn(serverClientId: "${dotenv.env["WEB_CLIENT_ID"]}");
-    final GoogleSignInAccount? googleUser =
-        await singletonGoogleSignIn.googleSignIn.signIn();
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final SingletonGoogleSignIn signInManager = SingletonGoogleSignIn(serverClientId: "${dotenv.env["WEB_CLIENT_ID"]}");
+    final GoogleSignIn  googleSignIn = signInManager.googleSignIn;
+    final GoogleSignInAccount? signedInUser = await googleSignIn.signIn();
+    final GoogleSignInAuthentication? googleAuth = await signedInUser?.authentication;
     final String? accessToken = googleAuth?.accessToken;
     final String? idToken = googleAuth?.idToken;
     await supabaseAuth.signInWithIdToken(
@@ -36,6 +35,7 @@ class SupabaseAuthService implements AuthService {
   Future<void> authWithFacebook() async {
     await supabaseAuth.signInWithOAuth(
       OAuthProvider.facebook,
+      authScreenLaunchMode: LaunchMode.inAppWebView,
     );
   }
 

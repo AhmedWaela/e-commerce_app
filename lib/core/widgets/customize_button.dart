@@ -13,31 +13,32 @@ class CustomizeButton extends StatelessWidget {
     
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        width: MediaQuery.sizeOf(context).width,
-        height: 48,
-        decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(25.0),
-        ),
-        child: Center(
-          child:
-              BlocSelector<EmailSignUpCubit, EmailSignUpState, bool>(
-            selector: (state) => state is SignUpLoading,
-            builder: (context, state) {
-              if (state) {
-                return const CircularProgressIndicator(
-                  color: Colors.white,
+      child: AspectRatio(
+        aspectRatio: MediaQuery.sizeOf(context).width > 500 ? 12 : 6,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(25.0),
+          ),
+          child: Center(
+            child:
+                BlocSelector<EmailSignUpCubit, EmailSignUpState, bool>(
+              selector: (state) => state is SignUpLoading,
+              builder: (context, state) {
+                if (state) {
+                  return const CircularProgressIndicator(
+                    color: Colors.white,
+                  );
+                }
+                return Text(
+                  "SIGN UP",
+                  style: TextStyle(
+                    fontSize: MediaQuery.sizeOf(context).width > 500 ? 30 : 14,
+                    color: Colors.white,
+                  ),
                 );
-              }
-              return Text(
-                "Sign up",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
-                ),
-              );
-            },
+              },
+            ),
           ),
         ),
       ),

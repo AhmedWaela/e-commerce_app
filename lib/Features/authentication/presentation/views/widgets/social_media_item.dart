@@ -18,13 +18,13 @@ class SocialMediaItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        height: 64,
-        width:96,
+        height: MediaQuery.sizeOf(context).height * 0.1,
+        width: MediaQuery.sizeOf(context).width * 0.19,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(MediaQuery.sizeOf(context).width > 500 ? 40:25),
         ),
-        child: isLoading ? const CircularProgressIndicator() : SvgPicture.asset(logo),
+        child: isLoading ? const CircularProgressIndicator() : SvgPicture.asset(logo,height: MediaQuery.sizeOf(context).height * 0.05,),
       ),
     );
   }
