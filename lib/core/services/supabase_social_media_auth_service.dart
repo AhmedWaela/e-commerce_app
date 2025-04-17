@@ -2,20 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../../Features/authentication/data/models/user_model/user_model.dart';
 import '../utils/singleton_google_sign_in.dart';
 import 'auth_service.dart';
 
-class SupabaseAuthService implements AuthService {
+class SupabaseSocialMediaAuthService implements SocialMediaAuthService {
   final GoTrueClient supabaseAuth;
 
-  const SupabaseAuthService(this.supabaseAuth);
-
-  @override
-  Future<void> createUserWithEmailAndPassword(UserModel user) async {
-    await supabaseAuth.signUp(email: user.email, password: user.password);
-  }
-
+  const SupabaseSocialMediaAuthService(this.supabaseAuth);
+  
   @override
   Future<void> authWithGoogle() async {
     final SingletonGoogleSignIn signInManager = SingletonGoogleSignIn(serverClientId: "${dotenv.env["WEB_CLIENT_ID"]}");
@@ -47,3 +41,6 @@ class SupabaseAuthService implements AuthService {
     );
   }
 }
+
+
+

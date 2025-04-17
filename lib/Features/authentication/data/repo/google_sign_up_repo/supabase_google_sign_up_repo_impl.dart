@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import '../../../../../core/errors/failure.dart';
-import '../../../../../core/services/supabase_auth_service.dart';
+import '../../../../../core/services/supabase_social_media_auth_service.dart';
 import 'google_sign_up_repo.dart';
 
 class SupabaseGoogleSignUpRepoImpl implements GoogleSignUpRepo {
-  final SupabaseAuthService supabaseAuthService;
+  final SupabaseSocialMediaAuthService supabaseAuthService;
 
   const SupabaseGoogleSignUpRepoImpl(this.supabaseAuthService);
 

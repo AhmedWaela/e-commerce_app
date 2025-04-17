@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../../core/errors/failure.dart';
-import '../../../../../core/services/firebase_auth_service.dart';
-import '../../../../../core/services/supabase_auth_service.dart';
+import '../../../../../core/services/firebase_social_media_auth_service.dart';
+import '../../../../../core/services/supabase_social_media_auth_service.dart';
 import '../../../../../core/utils/backends.dart';
 import 'supabase_github_sign_up_repo_impl.dart';
 
@@ -15,9 +15,9 @@ abstract class GithubSignUpRepo {
     factory GithubSignUpRepo.getFactory(BackEnds way) {
     switch (way) {
       case BackEnds.firebase:
-        return FirebaseGithubSignUpRepoImpl(FirebaseAuthService(FirebaseAuth.instance));
+        return FirebaseGithubSignUpRepoImpl(FirebaseSocialMediaAuthService(FirebaseAuth.instance));
       case BackEnds.supabase:
-        return SupabaseGithubSignUpRepoImpl(SupabaseAuthService(Supabase.instance.client.auth));
+        return SupabaseGithubSignUpRepoImpl(SupabaseSocialMediaAuthService(Supabase.instance.client.auth));
     }
   }
 }

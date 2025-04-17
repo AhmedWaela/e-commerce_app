@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../../core/errors/failure.dart';
-import '../../../../../core/services/firebase_auth_service.dart';
+import '../../../../../core/services/firebase_email_and_password_auth_service.dart';
 import '../../models/user_model/user_model.dart';
 import 'email_sign_up_repo.dart';
 
 class FirebaseEmailSignUpRepoImpl implements EmailSignUpRepo {
-  final FirebaseAuthService firebaseAuthService;
+  final FirebaseEmailAndPasswordAuthService firebaseAuthService;
 
   const FirebaseEmailSignUpRepoImpl(this.firebaseAuthService);
 

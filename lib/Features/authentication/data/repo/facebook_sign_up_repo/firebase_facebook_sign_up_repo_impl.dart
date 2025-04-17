@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import '../../../../../core/errors/failure.dart';
-import '../../../../../core/services/firebase_auth_service.dart';
+import '../../../../../core/services/firebase_social_media_auth_service.dart';
 import 'facebook_sign_up_repo.dart';
 
 class FirebaseFacebookSignUpRepoImpl implements FacebookSignUpRepo {
-  final FirebaseAuthService firebaseAuth;
+  final FirebaseSocialMediaAuthService firebaseAuth;
 
   const FirebaseFacebookSignUpRepoImpl(this.firebaseAuth);
   @override

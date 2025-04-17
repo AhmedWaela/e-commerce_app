@@ -11,6 +11,6 @@ void showCustomSnackbar(BuildContext context,String title,String subtitle,SnackT
       duration: const Duration(seconds: 3),
       animationDuration: const Duration(milliseconds: 500),
       position: SnackPosition.top,
-      persistent: false, // Set to true to keep Snackbar visible until manually dismissed
+      persistent: true, // Set to true to keep Snackbar visible until manually dismissed
     );
   }

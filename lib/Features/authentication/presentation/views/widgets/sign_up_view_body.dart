@@ -37,20 +37,19 @@ class SignUpViewBody extends StatelessWidget {
               validator: (value) {
                 if (value.isEmpty || value.length < 6) {
                   return false;
-                }else{
-                return true;
+                } else {
+                  return true;
                 }
-
               },
               controller: context.read<EmailSignUpCubit>().name,
               textInputAction: TextInputAction.next,
               labelText: "Name",
             ),
             CustomTextField(
-                 validator: (value) {
-                 final emailRegex = RegExp(
+              validator: (value) {
+                final emailRegex = RegExp(
                     r'^[a-zA-Z0-9]+[a-zA-Z0-9._%-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-                if (value.isEmpty|| !emailRegex.hasMatch(value)) {
+                if (value.isEmpty || !emailRegex.hasMatch(value)) {
                   return false;
                 }
                 return true;
@@ -89,11 +88,19 @@ class SignUpViewBody extends StatelessWidget {
               ],
             ),
             SizedBox(height: MediaQuery.sizeOf(context).width * 0.08),
-            CustomizeButton(
-              onTap: () async {
-                await context
-                    .read<EmailSignUpCubit>()
-                    .signUpWithEmailAndPassword();
+            BlocBuilder<EmailSignUpCubit, EmailSignUpState>(
+              builder: (context, state) {
+                return CustomizeButton(
+                  text: "Sign up",
+                  color: Colors.red,
+                  hasBorder: false,
+                  isLoading: state is SignUpLoading,
+                  onTap: () async {
+                    await context
+                        .read<EmailSignUpCubit>()
+                        .signUpWithEmailAndPassword();
+                  },
+                );
               },
             ),
             SizedBox(height: MediaQuery.sizeOf(context).width * 0.08),

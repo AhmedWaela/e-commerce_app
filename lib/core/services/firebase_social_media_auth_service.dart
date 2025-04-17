@@ -4,22 +4,13 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:github_oauth/github_oauth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import '../../Features/authentication/data/models/user_model/user_model.dart';
 import '../utils/singleton_google_sign_in.dart';
 import 'auth_service.dart';
 
-class FirebaseAuthService implements AuthService {
+class FirebaseSocialMediaAuthService implements SocialMediaAuthService {
   final FirebaseAuth firebaseAuth;
 
-  const FirebaseAuthService(this.firebaseAuth);
-
-  @override
-  Future<void> createUserWithEmailAndPassword(UserModel user) async {
-    await firebaseAuth.createUserWithEmailAndPassword(
-      email: user.email,
-      password: user.password,
-    );
-  }
+  const FirebaseSocialMediaAuthService(this.firebaseAuth);
 
   @override
   Future<void> authWithGoogle() async {
@@ -55,3 +46,5 @@ class FirebaseAuthService implements AuthService {
     await firebaseAuth.signInWithCredential(credential);
   }
 }
+
+

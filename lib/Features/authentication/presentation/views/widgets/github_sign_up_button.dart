@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/backends.dart';
+import '../../../../visual_search/presentation/views/visual_search_view.dart';
 import '../../../data/repo/github_sign_up_repo/github_sign_up_repo.dart';
 import '../../manager/github_sign_up_cubit/github_sign_up_cubit.dart';
 import 'social_media_item.dart';
@@ -29,6 +31,7 @@ class GithubSignUpButton extends StatelessWidget {
                 backgroundColor: Colors.green,
               ),
             );
+                context.push(VisualSearchView.route);
           }
         },
         builder: (context, state) {
