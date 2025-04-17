@@ -16,6 +16,7 @@ lib/firebase_options.dart
 android/app/src/main/res/values
 firebase.json
 .env
+
 # IntelliJ related
 *.iml
 *.ipr
