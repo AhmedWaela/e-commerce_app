@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../../../core/errors/failure.dart';
-import '../../../../../core/services/supabase_email_and_password_auth_service.dart';
+import '../../../../../core/services/supabase_email_auth_service.dart';
 import '../../models/user_model/user_model.dart';
 import 'email_sign_up_repo.dart';
 
 class SupabaseEmailSignUpRepoImpl implements EmailSignUpRepo {
-  final SupabaseEmailAndPasswordAuthService supabaseAuthService;
+  final SupabaseEmailAuthService supabaseAuthService;
 
   const SupabaseEmailSignUpRepoImpl(this.supabaseAuthService);
 
